@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'addbook' %}">Add Book</a>
+        <a href="{% url 'getbook' %}">Get all the books</a>
+        <a href="{% url 'mybook' %}">Get my books</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'getbook' %}">Get all the books</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+{% endblock %}
